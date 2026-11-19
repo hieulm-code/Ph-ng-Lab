@@ -1,0 +1,6 @@
+{
+  "name": "Phòng Lập trình - AI | CodeKitten",
+  "description": "Phòng Lập trình - AI trên nền tảng CodeKitten: Kho tàng 46+ dự án mẫu kéo thả lệnh, làm game, hoạt hình và tích hợp Trí tuệ nhân tạo cho học sinh từ Khối 1 đến Khối 9.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

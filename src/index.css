@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Lexend", "Be Vietnam Pro", system-ui, sans-serif;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-downey: #60c3ac;
+  --color-canary: #fff34d;
+  --color-ink: #0c2b27;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #0c2b27;
+    background-color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle horizontal carousel scrollbar hiding while preserving keyboard/touch scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes sunburstSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes characterFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.4deg);
+  }
+}
+
+@keyframes posterFloat {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.012);
+  }
+}
+
+@keyframes posterSheen {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateX(240%) skewX(-18deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(240%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes marqueeGlide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-sunburst {
+  animation: sunburstSpin 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-character-float {
+  animation: characterFloat 4.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-poster-float {
+  animation: posterFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-poster-sheen {
+  animation: posterSheen 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeGlide var(--marquee-duration, 44s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper:focus-within .marquee-track,
+.marquee-track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-sunburst,
+  .animate-character-float,
+  .animate-poster-float,
+  .animate-poster-sheen,
+  .marquee-track {
+    animation: none;
+  }
+}
